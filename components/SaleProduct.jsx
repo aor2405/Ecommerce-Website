@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 import { urlFor } from '../lib/client';
 
-function Product({ product: { image, name, slug, price } }) {
+function Product({ product: { image, name, slug, price, discount } }) {
   return (
     <div>
-      <Link href={`/product/${slug.current}`}>
+      <Link href={`/product/sale/${slug.current}`}>
         <div>
           <div className="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
             <img

@@ -1,6 +1,6 @@
 export default {
-  name: 'product',
-  title: 'Product',
+  name: 'saleItems',
+  title: 'Sale items',
   type: 'document',
   fields: [
     {
@@ -27,9 +27,24 @@ export default {
       },
     },
     {
-      name: 'price',
-      title: 'Price',
+      name: 'originalPrice',
+      title: 'Original price',
       type: 'number',
+    },
+    {
+      name: 'salePrice',
+      title: 'Sales price',
+      type: 'number',
+    },
+    {
+      name: 'discount',
+      title: 'Discount',
+      type: 'string',
+    },
+    {
+      name: 'saleTime',
+      title: 'SaleTime',
+      type: 'string',
     },
     {
       name: 'details',

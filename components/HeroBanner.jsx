@@ -1,12 +1,13 @@
 import React from 'react';
 
-function HeroBanner({ heroBanner }) {
+function HeroBanner() {
   return (
     <>
-      {console.log(heroBanner)}
-      {/* <div>Hello</div> */}
-      <div className="relative bg-gray-900">
-        <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
+      <div className="relative bg-gray-900 rounded-3xl mx-2">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 overflow-hidden rounded-3xl"
+        >
           <img
             src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070"
             alt="Promo banner of headphones"
@@ -15,9 +16,9 @@ function HeroBanner({ heroBanner }) {
         </div>
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gray-900 opacity-50"
+          className="absolute inset-0 bg-gray-900 opacity-50 rounded-3xl"
         />
-        <div className="relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-64 lg:px-0">
+        <div className="relative max-w-xl py-32 px-6 flex flex-col items-center text-center sm:py-64 lg:px-2">
           <h1 className="text-4xl font-extrabold tracking-tight text-white lg:text-6xl">
             New arrivals are here
           </h1>
