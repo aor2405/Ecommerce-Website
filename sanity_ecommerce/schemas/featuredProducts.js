@@ -1,6 +1,6 @@
 export default {
-  name: 'product',
-  title: 'Product',
+  name: 'featuredProducts',
+  title: 'Featured Products',
   type: 'document',
   fields: [
     {
