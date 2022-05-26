@@ -4,8 +4,6 @@ import { Product, HeroBanner, SaleProduct } from '../components/index';
 import { client } from '../lib/client';
 
 export default function Home({ products, saleProducts }) {
-  console.log('sale', saleProducts);
-  console.log('sale2', products);
   return (
     <>
       <div className="bg-white">
