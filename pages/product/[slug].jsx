@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import { Disclosure, Tab } from '@headlessui/react';
 import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
-import {
-  CheckIcon,
-  ClockIcon,
-  QuestionMarkCircleIcon,
-  XIcon,
-} from '@heroicons/react/solid';
 
 import { client, urlFor } from '../../lib/client';
+import { useStateContext } from '../../context/stateContext';
 
 const shippingReturns = {
   details: [
@@ -41,6 +36,14 @@ export default function ProductDetails({ product, products }) {
   const { image, name, price, details, features } = product;
 
   const [index, setIndex] = useState(0);
+  const { decQty, incQty, qty, onAdd } = useStateContext();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onAdd(product, qty);
+  }
+
+  // COPY TO SALE PPORDUCTS FOR CART FUNC
 
   return (
     <div className="bg-white">
@@ -56,7 +59,6 @@ export default function ProductDetails({ product, products }) {
                   >
                     {({ selected }) => (
                       <>
-                        {/* <span className="sr-only">{image.name}</span> */}
                         <span className="absolute inset-0 rounded-md overflow-hidden">
                           <img
                             src={urlFor(image && image[idx])}
@@ -113,35 +115,25 @@ export default function ProductDetails({ product, products }) {
             </div>
 
             <form className="mt-6">
-              <div className="mt-4 sm:mt-0 sm:pr-9">
-                <p>Quantity:</p>
-                <label className="sr-only">Quantity, {name}</label>
-                <select className="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
-                  <option value={4}>4</option>
-                  <option value={5}>5</option>
-                  <option value={6}>6</option>
-                  <option value={7}>7</option>
-                  <option value={8}>8</option>
-                </select>
-
-                <div className="absolute top-0 right-0">
-                  <button
-                    type="button"
-                    className="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500"
-                    onClick={''}
+              <div className="flex mt-3 items-center">
+                <p className="mr-2">Quantity:</p>
+                <div className="border flex border-gray-500">
+                  <div
+                    className="p-2 border-r border-gray-500 cursor-pointer"
+                    onClick={decQty}
                   >
-                    <span className="sr-only">Remove</span>
-                    <XIcon className="h-5 w-5" aria-hidden="true" />
-                  </button>
+                    <MinusSmIcon className="w-5 h-5" />
+                  </div>
+                  <div className="p-2 border-r border-gray-500">{qty}</div>
+                  <div className="p-2 border-r cursor-pointer" onClick={incQty}>
+                    <PlusSmIcon className="w-5 h-5 " />
+                  </div>
                 </div>
               </div>
               <div className="mt-10 flex sm:flex-col1">
                 <button
                   type="submit"
-                  onClick={''}
+                  onClick={handleSubmit}
                   className="w-40 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                 >
                   Add to bag
@@ -149,7 +141,7 @@ export default function ProductDetails({ product, products }) {
 
                 <button
                   type="button"
-                  onClick={''}
+                  // onClick={''}
                   className="w-40 ml-4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 "
                 >
                   Buy now

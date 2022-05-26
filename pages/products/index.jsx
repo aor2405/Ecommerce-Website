@@ -4,7 +4,6 @@ import { Product } from '../../components/index';
 import { client } from '../../lib/client';
 
 export default function Home({ products }) {
-  console.log('prod', products);
   return (
     <>
       <div className="bg-white">

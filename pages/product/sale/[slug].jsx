@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Disclosure, Tab } from '@headlessui/react';
 import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
 import { client, urlFor } from '../../../lib/client';
+import { useStateContext } from '../../../context/stateContext';
 
 const shippingReturns = {
   details: [
@@ -33,6 +34,14 @@ function classNames(...classes) {
 
 export default function ProductDetails({ product, products }) {
   const { image, name, originalPrice, salePrice, details, features } = product;
+
+  const [index, setIndex] = useState(0);
+  const { decQty, incQty, qty, onAdd } = useStateContext();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onAdd(product, qty);
+  }
 
   console.log('Saleproduct', salePrice, originalPrice);
   return (
@@ -109,23 +118,36 @@ export default function ProductDetails({ product, products }) {
             </div>
 
             <form className="mt-6">
+              <div className="flex mt-3 items-center">
+                <p className="mr-2">Quantity:</p>
+                <div className="border flex border-gray-500">
+                  <div
+                    className="p-2 border-r border-gray-500 cursor-pointer"
+                    onClick={decQty}
+                  >
+                    <MinusSmIcon className="w-5 h-5" />
+                  </div>
+                  <div className="p-2 border-r border-gray-500">{qty}</div>
+                  <div className="p-2 border-r cursor-pointer" onClick={incQty}>
+                    <PlusSmIcon className="w-5 h-5 " />
+                  </div>
+                </div>
+              </div>
               <div className="mt-10 flex sm:flex-col1">
                 <button
                   type="submit"
-                  className="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
+                  onClick={handleSubmit}
+                  className="w-40 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                 >
                   Add to bag
                 </button>
 
                 <button
                   type="button"
-                  className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                  // onClick={''}
+                  className="w-40 ml-4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 "
                 >
-                  <HeartIcon
-                    className="h-6 w-6 flex-shrink-0"
-                    aria-hidden="true"
-                  />
-                  <span className="sr-only">Add to favorites</span>
+                  Buy now
                 </button>
               </div>
             </form>
