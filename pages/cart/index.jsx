@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 
 import { useStateContext } from '../../context/stateContext';
 import { urlFor } from '../../lib/client';
+import getStripe from '../../lib/getStripe';
 
 import {
   CheckIcon,
@@ -22,6 +23,28 @@ export default function Cart() {
   if (typeof window !== 'undefined') {
     const cartProducts = JSON.parse(localStorage.getItem('cart'));
   }
+
+  const handleCheckout = async (e) => {
+    e.preventDefault();
+
+    const stripe = await getStripe();
+
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+
+    toast.loading('Redirecting...');
+
+    stripe.redirectToCheckout({ sessionId: data.id });
+  };
 
   return (
     <div className="bg-white" ref={cartRef}>
@@ -169,9 +192,10 @@ export default function Cart() {
             <div className="mt-6">
               <button
                 type="submit"
+                onClick={handleCheckout}
                 className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
               >
-                Checkout
+                Pay with Stripe
               </button>
             </div>
           </section>
