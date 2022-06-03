@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Router from 'next/router';
 import { Disclosure, Tab } from '@headlessui/react';
 import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
@@ -43,7 +44,13 @@ export default function ProductDetails({ product, products }) {
     onAdd(product, qty);
   }
 
-  console.log('Saleproduct', salePrice, originalPrice);
+  function handleBuyNow(e) {
+    e.preventDefault();
+
+    onAdd(product, qty);
+    Router.push('/cart');
+  }
+
   return (
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -144,7 +151,7 @@ export default function ProductDetails({ product, products }) {
 
                 <button
                   type="button"
-                  // onClick={''}
+                  onClick={handleBuyNow}
                   className="w-40 ml-4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 "
                 >
                   Buy now

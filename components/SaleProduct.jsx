@@ -2,8 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 
 import { urlFor } from '../lib/client';
+import { useStateContext } from '../context/stateContext';
 
 function Product({ product: { image, name, slug, price, discount } }) {
+  const { loadingHandler } = useStateContext();
   return (
     <div>
       <Link href={`/product/sale/${slug.current}`}>
@@ -12,6 +14,7 @@ function Product({ product: { image, name, slug, price, discount } }) {
             <img
               src={urlFor(image && image[0])}
               alt="product image"
+              onClick={loadingHandler}
               className="w-full max-h-80 cursor-pointer object-center object-cover transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
             />
           </div>

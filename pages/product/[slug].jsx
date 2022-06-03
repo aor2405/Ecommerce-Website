@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
+import Router from 'next/router';
 import { Disclosure, Tab } from '@headlessui/react';
-import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
+import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
 import { client, urlFor } from '../../lib/client';
 import { useStateContext } from '../../context/stateContext';
@@ -43,7 +45,12 @@ export default function ProductDetails({ product, products }) {
     onAdd(product, qty);
   }
 
-  // COPY TO SALE PPORDUCTS FOR CART FUNC
+  function handleBuyNow(e) {
+    e.preventDefault();
+
+    onAdd(product, qty);
+    Router.push('/cart');
+  }
 
   return (
     <div className="bg-white">
@@ -139,13 +146,15 @@ export default function ProductDetails({ product, products }) {
                   Add to bag
                 </button>
 
-                <button
-                  type="button"
-                  // onClick={''}
-                  className="w-40 ml-4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 "
-                >
-                  Buy now
-                </button>
+                <Link href="/cart">
+                  <button
+                    type="button"
+                    onClick={handleBuyNow}
+                    className="w-40 ml-4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 "
+                  >
+                    Buy now
+                  </button>
+                </Link>
               </div>
             </form>
 
