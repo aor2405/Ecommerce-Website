@@ -37,6 +37,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+    },
+    {
       name: 'features',
       title: 'Features',
       type: 'array',
