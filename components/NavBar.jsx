@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Popover } from '@headlessui/react';
+import { Menu, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
 import { SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline';
 import toast from 'react-hot-toast';
 
@@ -9,8 +11,9 @@ import { useStateContext } from '../context/stateContext';
 import { client } from '../lib/client';
 
 const navigation = [
-  { name: 'All Products', href: '/products' },
-  { name: 'Categories', href: '#' },
+  { name: 'Household Appliances', href: 'household' },
+  { name: 'Consumer Electronics', href: 'general' },
+  { name: 'Sale Products', href: 'sale' },
 ];
 
 function classNames(...classes) {
@@ -74,16 +77,40 @@ export default function Navbar() {
 
               <Popover.Group className="absolute bottom-0 inset-x-0 sm:static sm:flex-1 sm:self-stretch">
                 <div className="border-t h-14 px-4 flex space-x-8 overflow-x-auto pb-px sm:h-full sm:border-t-0 sm:justify-center sm:overflow-visible sm:pb-0">
-                  {navigation.map((item) => (
-                    <Link key={item.name} href={item.href}>
-                      <a
-                        className="flex items-center text-xl font-medium text-gray-700 hover:text-gray-800"
-                        onClick={loadingHandler}
-                      >
-                        {item.name}
-                      </a>
-                    </Link>
-                  ))}
+                  <Link href="/products">
+                    <a
+                      className="flex items-center text-xl font-medium text-gray-700 hover:text-gray-800"
+                      onClick={loadingHandler}
+                    >
+                      All Products
+                    </a>
+                  </Link>
+                  <Menu as="div" className="relative inline-block text-left">
+                    <div class="group relative dropdown cursor-pointer text-base">
+                      <Menu.Button className="inline-flex group relative dropdown justify-center py-4 bg-white text-xl text-gray-700 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                        Categories
+                        <ChevronDownIcon
+                          className="-mr-1 ml-2 mt-1 h-5 w-5"
+                          aria-hidden="true"
+                        />
+                      </Menu.Button>
+
+                      <div class="group-hover:block dropdown-menu absolute hidden h-auto">
+                        <div class="top-0 w-60 bg-gray-50 relative z-50 shadow px-6 py-8">
+                          {navigation.map((item) => (
+                            <Link key={item.name} href={item.href}>
+                              <p
+                                class="block cursor-pointer border-b-2 text-lg hover:text-xl"
+                                onClick={loadingHandler}
+                              >
+                                {item.name}
+                              </p>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </Menu>
                 </div>
               </Popover.Group>
 
