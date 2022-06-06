@@ -1,6 +1,10 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
+import {
+  MinusSmIcon,
+  PlusSmIcon,
+  EmojiSadIcon,
+} from '@heroicons/react/outline';
 import toast from 'react-hot-toast';
 
 import { useStateContext } from '../../context/stateContext';
@@ -19,7 +23,6 @@ export default function Cart() {
 
   const {
     totalPrice,
-    totalQuantities,
     cartItems,
     onRemove,
     toggleCartItemQuantity,
@@ -64,32 +67,34 @@ export default function Cart() {
             <div className="col-span-7 col-start-4">
               <div className="sm:px-6 lg:px-8">
                 <div className="bg-gray-200 rounded-2xl px-6 py-16 sm:p-16 text-center">
-                  <p className="font-black text-3xl">
+                  <EmojiSadIcon className="mx-auto w-12 h-12 text-sky-600" />
+                  <p className="font-black text-3xl my-2">
                     Your cart is currently empty
                   </p>
+
                   <Link href="/">
                     <a
-                      class="relative inline-flex items-center mt-4 px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50"
+                      className="relative inline-flex items-center mt-4 px-12 py-3 overflow-hidden text-lg font-medium text-sky-800 border-2 border-sky-600 rounded-full hover:text-white group hover:bg-gray-50"
                       onClick={loadingHandler}
                     >
-                      <span class="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-                      <span class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                      <span className="absolute left-0 block w-full h-0 transition-all bg-sky-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                      <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M14 5l7 7m0 0l-7 7m7-7H3"
                           ></path>
                         </svg>
                       </span>
-                      <span class="relative">Keep shopping</span>
+                      <span className="relative">Keep shopping</span>
                     </a>
                   </Link>
                 </div>
@@ -104,10 +109,11 @@ export default function Cart() {
 
             {cartItems?.map((item) => (
               <ul
+                key={item._id}
                 role="list"
                 className="border-t border-b border-gray-200 divide-y divide-gray-200"
               >
-                <li key={item._id} className="flex py-6 sm:py-10">
+                <li className="flex py-6 sm:py-10">
                   <div className="flex-shrink-0">
                     <img
                       src={urlFor(item?.image[0])}
@@ -123,10 +129,15 @@ export default function Cart() {
                         <p className="mt-1 text-sm font-medium text-gray-900">
                           {item.name}
                         </p>
-
-                        <p className="mt-1 text-sm font-medium text-gray-900">
-                          €{item.price}
-                        </p>
+                        {item.price ? (
+                          <p className="mt-1 text-sm font-medium text-gray-900">
+                            €{item.price}
+                          </p>
+                        ) : (
+                          <p className="mt-1 text-sm font-medium text-gray-900">
+                            €{item.salePrice}
+                          </p>
+                        )}
                       </div>
 
                       <div className="flex mt-3 items-center">
@@ -196,6 +207,7 @@ export default function Cart() {
                   <dd className="text-sm font-medium text-gray-900">
                     €{totalPrice}
                   </dd>
+                  {console.log(totalPrice)}
                 </div>
                 <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                   <dt className="flex items-center text-sm text-gray-600">
@@ -242,7 +254,7 @@ export default function Cart() {
                 <button
                   type="submit"
                   onClick={handleCheckout}
-                  className="w-full flex justify-center bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                  className="w-full flex justify-center bg-sky-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sky-500"
                 >
                   <div className="flex items-center">
                     Pay with

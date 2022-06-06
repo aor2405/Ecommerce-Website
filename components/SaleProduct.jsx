@@ -4,8 +4,11 @@ import Link from 'next/link';
 import { urlFor } from '../lib/client';
 import { useStateContext } from '../context/stateContext';
 
-function Product({ product: { image, name, slug, price, discount } }) {
+export default function Product({
+  product: { image, name, slug, salePrice, originalPrice },
+}) {
   const { loadingHandler } = useStateContext();
+
   return (
     <div>
       <Link href={`/product/sale/${slug.current}`}>
@@ -15,15 +18,20 @@ function Product({ product: { image, name, slug, price, discount } }) {
               src={urlFor(image && image[0])}
               alt="product image"
               onClick={loadingHandler}
-              className="w-full max-h-80 cursor-pointer object-center object-cover transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
+              className="w-full sm:max-h-80 cursor-pointer object-center object-cover transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
             />
           </div>
           <h3 className="mt-4 text-sm text-gray-700">{name}</h3>
-          <p className="mt-1 text-lg font-medium text-gray-900">€{price}</p>
+          <div className="flex">
+            <p className="mt-1 text-lg font-medium text-gray-900">
+              €{salePrice}
+            </p>
+            <p className="mt-1 ml-2 text-lg font-medium text-gray-600 line-through decoration-red-700">
+              €{originalPrice}
+            </p>
+          </div>
         </div>
       </Link>
     </div>
   );
 }
-
-export default Product;

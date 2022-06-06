@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { urlFor } from '../lib/client';
 import { useStateContext } from '../context/stateContext';
 
-function Product({ product: { image, name, slug, price } }) {
+export default function Product({ product: { image, name, slug, price } }) {
   const { loadingHandler } = useStateContext();
 
   return (
@@ -26,5 +26,3 @@ function Product({ product: { image, name, slug, price } }) {
     </div>
   );
 }
-
-export default Product;
