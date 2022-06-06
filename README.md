@@ -8,7 +8,7 @@ npm run dev
 npx @sanity/cli start to start sanity-manage
 ```
 
-![Homepage banner]([http://full/path/to/img.jpg](https://res.cloudinary.com/dd2duttda/image/upload/v1654518987/Screenshot_2022-06-06_at_16.36.03_zwcjsg.png) "Optional title")
+![Homepage banner]([https://res.cloudinary.com/dd2duttda/image/upload/v1654518987/Screenshot_2022-06-06_at_16.36.03_zwcjsg.png] "Optional title")
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
