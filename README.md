@@ -10,6 +10,16 @@ npx @sanity/cli start to start sanity-manage
 
 ![Homepage banner](https://res.cloudinary.com/dd2duttda/image/upload/v1654518987/Screenshot_2022-06-06_at_16.36.03_zwcjsg.png "Optional title")
 
+![Page example](https://res.cloudinary.com/dd2duttda/image/upload/v1654519297/Screenshot_2022-06-06_at_16.38.58_a8wpgz.png "Optional title")
+
+![Product example](https://res.cloudinary.com/dd2duttda/image/upload/v1654519309/Screenshot_2022-06-06_at_16.39.20_npuzaf.png "Optional title")
+
+![Cart example](https://res.cloudinary.com/dd2duttda/image/upload/v1654519320/Screenshot_2022-06-06_at_16.40.50_hbvjdm.png "Optional title")
+
+![Stripe checkout](https://res.cloudinary.com/dd2duttda/image/upload/v1654519389/Screenshot_2022-06-06_at_16.42.16_ldhbar.png "Optional title")
+
+![Success example](https://res.cloudinary.com/dd2duttda/image/upload/v1654519395/Screenshot_2022-06-06_at_16.42.58_cvqvlb.png "Optional title")
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
