@@ -1,36 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Product, HeroBanner, SaleProduct } from '../components/index';
-import Spinner from '../components/Spinner';
 import { client } from '../lib/client';
 
 export default function Home({ products, saleProducts }) {
-  const [loading, setLoading] = useState(false);
-
-  function clickHandler() {
-    console.log('BEOFRE', loading);
-    setLoading(true);
-    console.log('AFTER', loading);
-  }
-
   return (
     <>
-      {loading && <Spinner />}
       <div className="bg-white">
         <HeroBanner />
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">Products</h2>
-          <h1 className="text-4xl text-center font-header mb-12">
+          <h1 className="text-4xl text-center text-sky-900 font-header mb-12">
             Featured Products
           </h1>
 
-          <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          <div
+            id="firstProduct"
+            className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+          >
             {products?.map((product) => (
               <Product key={product._id} product={product} />
             ))}
           </div>
 
-          <h1 className="text-4xl text-center font-header my-12">Sale Items</h1>
+          <h1 className="text-4xl text-center text-sky-900 font-header my-12">
+            Sale Items
+          </h1>
           <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {saleProducts?.map((product) => (
               <SaleProduct key={product._id} product={product} />

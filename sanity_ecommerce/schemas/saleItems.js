@@ -32,7 +32,7 @@ export default {
       type: 'number',
     },
     {
-      name: 'salePrice',
+      name: 'price',
       title: 'Sales price',
       type: 'number',
     },

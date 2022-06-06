@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
+import Link from 'next/link';
 import { Disclosure, Tab } from '@headlessui/react';
-import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
+import { MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline';
 
 import { client, urlFor } from '../../../lib/client';
 import { useStateContext } from '../../../context/stateContext';
@@ -65,18 +66,17 @@ export default function ProductDetails({ product, products }) {
                   >
                     {({ selected }) => (
                       <>
-                        {/* <span className="sr-only">{image.name}</span> */}
                         <span className="absolute inset-0 rounded-md overflow-hidden">
                           <img
                             src={urlFor(image && image[idx])}
-                            alt=""
+                            alt="Image of the product"
                             onMouseEnter={() => setIndex(idx)}
                             className="w-full h-full object-center object-cover"
                           />
                         </span>
                         <span
                           className={classNames(
-                            selected ? 'ring-indigo-500' : 'ring-transparent',
+                            selected ? 'ring-sky-500' : 'ring-transparent',
                             'absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none'
                           )}
                           aria-hidden="true"
@@ -102,21 +102,21 @@ export default function ProductDetails({ product, products }) {
           </Tab.Group>
 
           <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
+            <h1 className="text-3xl font-extrabold tracking-tight text-sky-700">
               {name}
             </h1>
 
             <div className="mt-3 flex">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl text-gray-900">€{salePrice}</p>
-              <p className="text-xl text-gray-600 ml-4 line-through">
+              <p className="text-3xl text-gray-700 ">€{salePrice}</p>
+              <p className="text-xl text-gray-500 ml-4 line-through decoration-red-700">
                 €{originalPrice}
               </p>
             </div>
 
             <div className="mt-6">
               <h3 className="sr-only">Description</h3>
-              <p>{details}</p>
+              <p className="text-gray-500">{details}</p>
 
               <div
                 className="text-base text-gray-700 space-y-6"
@@ -136,26 +136,28 @@ export default function ProductDetails({ product, products }) {
                   </div>
                   <div className="p-2 border-r border-gray-500">{qty}</div>
                   <div className="p-2 border-r cursor-pointer" onClick={incQty}>
-                    <PlusSmIcon className="w-5 h-5 " />
+                    <PlusSmIcon className="w-5 h-5" />
                   </div>
                 </div>
               </div>
-              <div className="mt-10 flex sm:flex-col1">
+              <div className="mt-10 sm:flex sm:flex-col1">
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="w-40 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                  className="w-40 mx-auto sm:mx-0 bg-sky-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sky-500"
                 >
                   Add to bag
                 </button>
 
-                <button
-                  type="button"
-                  onClick={handleBuyNow}
-                  className="w-40 ml-4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 "
-                >
-                  Buy now
-                </button>
+                <Link href="/cart">
+                  <button
+                    type="button"
+                    onClick={handleBuyNow}
+                    className="w-40 mx-auto mt-4 sm:mx-0 sm:ml-4 sm:mt-0 bg-white border border-sky-600 rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-sky-600 hover:bg-gray-100 hover:border-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sky-500 "
+                  >
+                    Buy now
+                  </button>
+                </Link>
               </div>
             </form>
 
@@ -172,7 +174,7 @@ export default function ProductDetails({ product, products }) {
                         <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
                           <span
                             className={classNames(
-                              open ? 'text-indigo-600' : 'text-gray-900',
+                              open ? 'text-sky-600' : 'text-gray-900',
                               'text-sm font-medium'
                             )}
                           >
@@ -181,7 +183,7 @@ export default function ProductDetails({ product, products }) {
                           <span className="ml-6 flex items-center">
                             {open ? (
                               <MinusSmIcon
-                                className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                                className="block h-6 w-6 text-sky-400 group-hover:text-sky-500"
                                 aria-hidden="true"
                               />
                             ) : (
@@ -216,7 +218,7 @@ export default function ProductDetails({ product, products }) {
                           <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
                             <span
                               className={classNames(
-                                open ? 'text-indigo-600' : 'text-gray-900',
+                                open ? 'text-sky-600' : 'text-gray-900',
                                 'text-sm font-medium'
                               )}
                             >
@@ -225,7 +227,7 @@ export default function ProductDetails({ product, products }) {
                             <span className="ml-6 flex items-center">
                               {open ? (
                                 <MinusSmIcon
-                                  className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                                  className="block h-6 w-6 text-sky-400 group-hover:text-sky-500"
                                   aria-hidden="true"
                                 />
                               ) : (

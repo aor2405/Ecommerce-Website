@@ -1,10 +1,13 @@
 import React from 'react';
-import Link from 'next/link';
+import { ChevronDownIcon } from '@heroicons/react/outline';
 
-import { useStateContext } from '../context/stateContext';
+export default function HeroBanner() {
+  const handleClick = () => {
+    document
+      .getElementById('firstProduct')
+      .scrollIntoView({ behavior: 'smooth' });
+  };
 
-function HeroBanner() {
-  const { loadingHandler } = useStateContext();
   return (
     <>
       <div className="relative bg-gray-900 rounded-3xl mx-2">
@@ -27,20 +30,14 @@ function HeroBanner() {
             Rye River Electronics
           </h1>
           <p className="mt-4 text-xl text-white">
-            Please explore our wide range of electronics.
+            Please explore our wide range of household and consumer electronics.
           </p>
-          <Link href="/products">
-            <a
-              className="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100"
-              onClick={loadingHandler}
-            >
-              Shop all products
-            </a>
-          </Link>
+          <ChevronDownIcon
+            className="text-white w-16 h-16 animate-bounce cursor-pointer"
+            onClick={handleClick}
+          />
         </div>
       </div>
     </>
   );
 }
-
-export default HeroBanner;
