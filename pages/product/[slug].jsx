@@ -34,7 +34,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function ProductDetails({ product, products }) {
+export default function ProductDetails({ product }) {
   const { image, name, price, details, features } = product;
 
   const [index, setIndex] = useState(0);
@@ -281,11 +281,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
-  const productsQuery = '*[_type == "product"]';
   const product = await client.fetch(query);
-  const products = await client.fetch(productsQuery);
 
   return {
-    props: { product, products },
+    props: { product },
   };
 };
