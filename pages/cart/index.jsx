@@ -180,7 +180,7 @@ export default function Cart() {
                           className="flex-shrink-0 h-5 w-5 text-green-500"
                           aria-hidden="true"
                         />
-                        <span>'In stock' </span>
+                        <span>In stock </span>
                       </p>
                     </div>
                   </div>
