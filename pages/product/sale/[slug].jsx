@@ -285,8 +285,16 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "saleItems" && slug.current == '${slug}'][0]`;
   const product = await client.fetch(query);
-
-  return {
-    props: { product },
-  };
+  try {
+    if (!product) {
+      return { notFound: true };
+    }
+    console.log('product', product);
+    console.log(`Building slug: ${slug}`);
+    return {
+      props: { product },
+    };
+  } catch (err) {
+    return { notFound: true };
+  }
 };
