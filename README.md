@@ -1,6 +1,6 @@
 ## Full Stack application with Stripe integration
 
-![Homepage banner](https://res.cloudinary.com/dd2duttda/image/upload/v1654518987/Screenshot_2022-06-06_at_16.36.03_zwcjsg.png "Optional title")
+![Homepage banner](https://res.cloudinary.com/dd2duttda/image/upload/v1654677904/Screenshot_2022-06-08_at_12.40.38_xljaqd.png "Optional title")
 
 The objective of this project was to build a modern full stack application that also included payments functionality. The application has a clean, simple and modern design. It also comes with the ability to easily add, edit or delete products through the Sanity CMS. 
 
@@ -11,15 +11,15 @@ Technology used:
 - Stripe 
 
 
-![Page example](https://res.cloudinary.com/dd2duttda/image/upload/v1654519617/Screenshot_2022-06-06_at_16.46.47_y0s9gi.png "Optional title")
+![Page example](https://res.cloudinary.com/dd2duttda/image/upload/v1654677904/Screenshot_2022-06-08_at_12.42.10_xsbstl.png "Optional title")
 
-![Product example](https://res.cloudinary.com/dd2duttda/image/upload/v1654519680/Screenshot_2022-06-06_at_16.47.43_mqhgoi.png "Optional title")
+![Product example](https://res.cloudinary.com/dd2duttda/image/upload/v1654677904/Screenshot_2022-06-08_at_12.42.40_emjfxl.png "Optional title")
 
-![Cart example](https://res.cloudinary.com/dd2duttda/image/upload/v1654519320/Screenshot_2022-06-06_at_16.40.50_hbvjdm.png "Optional title")
+![Cart example](https://res.cloudinary.com/dd2duttda/image/upload/v1654677904/Screenshot_2022-06-08_at_12.43.11_bzshc9.png "Optional title")
 
-![Stripe checkout](https://res.cloudinary.com/dd2duttda/image/upload/v1654519389/Screenshot_2022-06-06_at_16.42.16_ldhbar.png "Optional title")
+![Stripe checkout](https://res.cloudinary.com/dd2duttda/image/upload/v1654677904/Screenshot_2022-06-08_at_12.43.37_ne5s7v.png "Optional title")
 
-![Success example](https://res.cloudinary.com/dd2duttda/image/upload/v1654519395/Screenshot_2022-06-06_at_16.42.58_cvqvlb.png "Optional title")
+![Success example](https://res.cloudinary.com/dd2duttda/image/upload/v1654677904/Screenshot_2022-06-08_at_12.44.04_tpdgay.png "Optional title")
 
 First, run the development server:
 
