@@ -10,6 +10,12 @@ Technology used:
 - Sanity
 - Stripe 
 
+Features:
+- Ability for a user to view products
+- Ability for a user to add a product to a cart
+- Ability for a user to purchase a product via Stripe
+- State managment carried out with UseContext
+
 Link to the site: https://rye-river-electronics.vercel.app/
 
 
