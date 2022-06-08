@@ -10,6 +10,9 @@ Technology used:
 - Sanity
 - Stripe 
 
+Link to the site: https://rye-river-electronics.vercel.app/
+
+
 
 ![Page example](https://res.cloudinary.com/dd2duttda/image/upload/v1654677904/Screenshot_2022-06-08_at_12.42.10_xsbstl.png "Optional title")
 
