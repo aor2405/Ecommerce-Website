@@ -30,7 +30,7 @@ export default function FooterBanner() {
         <div className="bg-gray-50 rounded-2xl px-6 py-16 sm:p-16">
           <div className="max-w-xl mx-auto lg:max-w-none">
             <div className="text-center">
-              <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
+              <h2 className="text-2xl font-extrabold font-paragraphHeading tracking-tight text-gray-900">
                 We built our business on customer service
               </h2>
             </div>
@@ -50,10 +50,10 @@ export default function FooterBanner() {
                     </div>
                   </div>
                   <div className="mt-3 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
-                    <h3 className="text-sm font-medium text-gray-900">
+                    <h3 className="text-sm font-medium font-paragraphHeading text-gray-900">
                       {incentive.name}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-500">
+                    <p className="mt-2 text-sm font-paragraph text-gray-500">
                       {incentive.description}
                     </p>
                   </div>

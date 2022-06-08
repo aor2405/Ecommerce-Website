@@ -102,18 +102,18 @@ export default function ProductDetails({ product }) {
           </Tab.Group>
 
           <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-            <h1 className="text-3xl font-extrabold tracking-tight text-sky-700">
+            <h1 className="text-3xl font-extrabold font-paragraphHeading tracking-tight text-sky-700">
               {name}
             </h1>
 
             <div className="mt-3">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl text-gray-700">€{price}</p>
+              <p className="text-3xl text-gray-700 font-paragraph">€{price}</p>
             </div>
 
             <div className="mt-6">
               <h3 className="sr-only">Description</h3>
-              <p className="text-gray-500">{details}</p>
+              <p className="text-gray-500 font-paragraph text-sm">{details}</p>
 
               <div
                 className="text-base text-gray-700 space-y-6"
@@ -123,7 +123,7 @@ export default function ProductDetails({ product }) {
 
             <form className="mt-6">
               <div className="flex mt-3 items-center">
-                <p className="mr-2">Quantity:</p>
+                <p className="mr-2 font-paragraph">Quantity:</p>
                 <div className="border flex border-gray-500">
                   <div
                     className="p-2 border-r border-gray-500 cursor-pointer"
@@ -141,7 +141,7 @@ export default function ProductDetails({ product }) {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="w-40 mx-auto sm:mx-0 bg-sky-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sky-500"
+                  className="w-40 font-paragraph text-sm mx-auto sm:mx-0 bg-sky-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sky-500"
                 >
                   Add to bag
                 </button>
@@ -150,7 +150,7 @@ export default function ProductDetails({ product }) {
                   <button
                     type="button"
                     onClick={handleBuyNow}
-                    className="w-40 mx-auto mt-4 sm:mx-0 sm:ml-4 sm:mt-0 bg-white border border-sky-600 rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-sky-600 hover:bg-gray-100 hover:border-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sky-500 "
+                    className="w-40 font-paragraph text-sm mx-auto mt-4 sm:mx-0 sm:ml-4 sm:mt-0 bg-white border border-sky-600 rounded-md py-3 px-8 flex items-center justify-center font-medium text-sky-600 hover:bg-gray-100 hover:border-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-sky-500 "
                   >
                     Buy now
                   </button>

@@ -9,6 +9,8 @@ module.exports = {
       fontFamily: {
         sans: ['Libre Baskerville', 'serif'],
         header: ['Orbitron', 'sans-serif'],
+        paragraph: ['Roboto Mono', 'monospace'],
+        paragraphHeading: ['Space Mono', 'monospace'],
       },
       colors: {
         burntOrange: '#EE4E34',

@@ -21,8 +21,12 @@ export default function Product({ product: { image, name, slug, price } }) {
               className="w-full sm:max-h-80 cursor-pointer object-center object-cover transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110"
             />
           </div>
-          <h3 className="mt-4 text-sm text-gray-700">{name}</h3>
-          <p className="mt-1 text-lg font-medium text-gray-900">€{price}</p>
+          <h3 className="mt-4 text-sm font-paragraphHeading text-gray-700">
+            {name}
+          </h3>
+          <p className="mt-1 text-lg font-medium font-paragraph text-gray-900">
+            €{price}
+          </p>
         </div>
       </Link>
     </div>

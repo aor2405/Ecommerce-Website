@@ -10,7 +10,7 @@ export default function HeroBanner() {
 
   return (
     <>
-      <div className="relative bg-gray-900 rounded-3xl mx-2">
+      <div className="relative  bg-gray-900 rounded-3xl mx-2 xl:mx-auto xl:max-w-7xl">
         <div
           aria-hidden="true"
           className="absolute inset-0 overflow-hidden rounded-3xl"
@@ -29,7 +29,7 @@ export default function HeroBanner() {
           <h1 className="text-4xl font-header tracking-tight text-white lg:text-6xl">
             Rye River Electronics
           </h1>
-          <p className="mt-4 text-xl text-white">
+          <p className="mt-4 text-lg font-paragraph text-white">
             Please explore our wide range of household and consumer electronics.
           </p>
           <ChevronDownIcon

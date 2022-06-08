@@ -58,7 +58,7 @@ export default function Cart() {
   return (
     <div className="bg-white" ref={cartRef}>
       <div className="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        <h1 className="text-3xl font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">
           Shopping Cart
         </h1>
 
@@ -126,15 +126,15 @@ export default function Cart() {
                     <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
                       <div>
                         <div className="flex justify-between"></div>
-                        <p className="mt-1 text-sm font-medium text-gray-900">
+                        <p className="mt-1 text-sm font-medium font-paragraphHeading text-gray-900">
                           {item.name}
                         </p>
                         {item.price ? (
-                          <p className="mt-1 text-sm font-medium text-gray-900">
+                          <p className="mt-1 text-sm font-medium font-paragraph text-gray-900">
                             €{item.price}
                           </p>
                         ) : (
-                          <p className="mt-1 text-sm font-medium text-gray-900">
+                          <p className="mt-1 text-sm font-medium font-paragraph text-gray-900">
                             €{item.salePrice}
                           </p>
                         )}
